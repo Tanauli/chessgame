@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chess Game</title>
+  <style>
+    .board {
+      display: flex;
+      flex-wrap: wrap;
+      width: 480px;
+      height: 480px;
+      border: 2px solid #000;
+    }
+
+    .square {
+      width: 60px;
+      height: 60px;
+      box-sizing: border-box;
+    }
+
+    .white {
+      background-color: #fff;
+    }
+
+    .black {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="board" id="board"></div>
+
+  <script>
+    // Create a chessboard
+    function createChessboard() {
+      const board = document.getElementById('board');
+
+      for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+          const square = document.createElement('div');
+          square.classList.add('square');
+          square.classList.add((i + j) % 2 === 0 ? 'white' : 'black');
+          board.appendChild(square);
+        }
+      }
+    }
+
+    // Initialize the chess game
+    function initializeGame() {
+      createChessboard();
+    }
+
+    // Run the game initialization
+    initializeGame();
+  </script>
+</body>
+</html>
